@@ -4,15 +4,14 @@ import axios from 'axios';
 import fs from 'fs';
 import { RiTa } from 'rita';
 import * as dotenv from 'dotenv';
-import bsky from '@atproto/api';
 import OpenAI from 'openai';
 
 import { findPairs, centerOf } from './wordplay.js';
 
 dotenv.config();
 
+import bsky from '@atproto/api';
 const { BskyAgent } = bsky;
-
 const agent = new BskyAgent({
   service: 'https://bsky.social',
 });
@@ -62,7 +61,7 @@ discordClient.once('ready', readyDiscord);
 
 async function readyDiscord() {
   generateTweet();
-  const hours = 2;
+  const hours = 12;
   setInterval(generateTweet, hours * 60 * 60 * 1000);
   console.log('💖');
   goListen();
